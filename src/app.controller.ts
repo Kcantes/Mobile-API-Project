@@ -58,7 +58,7 @@ export class AppController {
   @Delete(':film')
   deleteFilm(@Param() film) {
     this.appService.deleteFilm(decodeURIComponent(film["film"]))
-    return film["film"]+"deleted"
+    return "{ 'film':"+"'"+film["film"]+"deleted'}"
   }
 
 }
