@@ -56,9 +56,10 @@ export class AppController {
   }
   
   @Delete(':film')
-  deleteFilm(@Param() film) {
+  async deleteFilm(@Param() film) {
+    let f:Film =await this.appService.getFilm(decodeURIComponent(film["film"]))
     this.appService.deleteFilm(decodeURIComponent(film["film"]))
-    return "{ 'film':"+"'"+film["film"]+"deleted'}"
+    return f
   }
 
 }
